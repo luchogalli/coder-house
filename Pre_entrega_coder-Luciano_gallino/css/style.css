@@ -1,0 +1,98 @@
+@font-face {
+    font-family: "roboto";
+    src: url(../assets/Roboto-BlackItalic.ttf);
+}
+
+body{
+    font-family: "roboto";
+}
+.alpha{
+    color: green;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 730px;
+}
+#main{
+    padding-left: 500px;
+}
+
+#home-button{
+    background-color: rgb(105, 179, 9);
+    padding: 10px 18px;
+    border-radius: 5%;
+    font-size: x-large;
+    font-weight: bold;
+    float: left;
+    width: 200px;
+
+}
+
+#home-button:hover{
+    background-color: rgb(200, 245, 157);
+    box-shadow: 0 12px  16px 0 rgb(0, 0, 0.24), 0 17px 20px 0;
+}
+#home-button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+
+}
+
+#about-button{
+    background-color: rgb(105, 179, 9);
+    padding: 10px 18px;
+    border-radius: 5%;
+    font-size: x-large;
+    font-weight: bold;
+    float: left;
+    width: 200px;
+
+}
+#about-button:hover{
+    background-color: rgb(200, 245, 157);
+    box-shadow: 0 12px  16px 0 rgb(0, 0, 0.24), 0 17px 20px 0;
+}
+#about-button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#contact-button{
+    background-color: rgb(105, 179, 9);
+    padding: 10px 18px;
+    border-radius: 5%;
+    font-size: x-large;
+    font-weight: bold;
+    float: left;
+    width: 200px;
+
+}
+#contact-button:hover{
+    background-color: rgb(200, 245, 157);
+    box-shadow: 0 12px  16px 0 rgb(0, 0, 0.24), 0 17px 20px 0;
+}
+#contact-button:active{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#titulo-nuestro{
+    font-size: large;
+    font-weight: bold;
+    padding-top: 100px;
+}
+.mapa{
+    padding-left: 900px;
+    padding-top: -50px;
+    display: inline-block;
+}
+.formulario-cliente{
+    display: inline-block;
+}
+#gente-feliz{
+
+}
+.nuestra-historia{
+    position: absolute;
+    padding-left: 700px;
+}
