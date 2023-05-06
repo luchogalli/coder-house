@@ -77,10 +77,56 @@ body{
     transform: translateY(4px);
 }
 #titulo-nuestro{
-    font-size: large;
+    font-size: 40px;
     font-weight: bold;
-    padding-top: 100px;
+    padding-top: 60px;
+    margin-left: 700px;
+    position: absolute;
+    text-decoration: wavy;
+    
 }
+#presentacion{
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 140px;
+    padding-left: 700px;
+    position: absolute;
+    margin-right: 100px;
+    text-align: justify;
+}
+#edificios-intel{
+    padding-top: 100px;
+    padding-left: 60px;
+}
+
+.novedades{
+    position: absolute;
+    margin-left: 520px;
+    padding-top: 10px;
+}
+.novedades-text{
+    margin-left: 525px;
+    padding-top: 100px;
+    position: absolute;
+    margin-right: 620px;
+    text-align: justify;
+}
+
+#basura{
+    margin-left: 1160px;
+    position: absolute;
+}
+#video-loko{
+    padding-left: 50px;
+    position: absolute;
+    margin-top: -40px;
+
+}
+
+
+
+
+
 .mapa{
     padding-left: 900px;
     padding-top: -50px;
@@ -90,9 +136,37 @@ body{
     display: inline-block;
 }
 #gente-feliz{
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-left: 40px;
 
 }
 .nuestra-historia{
     position: absolute;
-    padding-left: 700px;
+    padding-left: 800px;
+    padding-top: 100px;
+    padding-right: 40px;
+    text-align: justify;
+}
+.sobre-nosotros{
+    padding-left: 790px;
+    position: absolute;
+    padding-top: 40px;
+
+}
+#grafico-proyectos{
+    position: absolute;
+    margin-left: 850px;
+    padding-top: 0px;
+}
+.proyectos{
+    position: absolute;
+    padding-left: 180px;
+    padding-top: 50px;
+    font-size: x-large;
+}
+.lista-down{
+    position: absolute;
+    padding-left: 200px;
+    padding-top: 150px;
 }
