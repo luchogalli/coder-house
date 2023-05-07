@@ -106,25 +106,26 @@ body{
 
 .novedades{
     position: absolute;
-    margin-left: 520px;
+    margin-left: 780px;
     padding-top: 10px;
 }
 .novedades-text{
-    margin-left: 525px;
+    margin-left: 780px;
     padding-top: 100px;
     position: absolute;
-    margin-right: 620px;
+    margin-right: 520px;
     text-align: justify;
 }
 
 #basura{
-    margin-left: 1160px;
+    margin-left: 1260px;
     position: absolute;
+    margin-top: -30px;
 }
 #video-loko{
-    padding-left: 50px;
-    position: absolute;
-    margin-top: -40px;
+    padding-left: 55px;
+    position: relative;
+    margin-top: -20px;
 
 }
 
