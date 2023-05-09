@@ -2,6 +2,9 @@
     font-family: "roboto";
     src: url(../assets/Roboto-BlackItalic.ttf);
 }
+header{
+    background-image: url(../assets/SIyK.gif);
+}
 
 body{
     font-family: "roboto";
@@ -13,7 +16,7 @@ body{
     padding-left: 730px;
     position: relative;
     margin-top: -60px;
-    background-image: url(../assets/SIyK.gif) ;
+     ;
 }
 #main{
     padding-left: 500px;
