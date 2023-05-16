@@ -8,6 +8,7 @@ header{
 
 body{
     font-family: "roboto";
+    background-color: rgb(172, 245, 221);
 }
 .alpha{
     color: green;
