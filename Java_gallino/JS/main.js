@@ -14,13 +14,14 @@ pilotos.push(new Piloto ("Jorge Macareno", 28, 8000, 50));
 pilotos.push(new Piloto ("Nikola Ksuftky", 20, 5000, 60));
 pilotos.push(new Piloto ("Zotroy Vladimuski", 41, 14400, 70));
 
-/*const imput = prompt("Ingrese el numero de vuelo");
-if (isNaN(imput)===false){
+let imput = prompt("Ingrese el numero de vuelo");
+
+if (isNaN(imput)===true){
     alert("Formato no valido");
-    return;
+    imput = -1;
 }
-*/
-const numero_de_vuelo = parseInt(prompt("Ingrese el numero de vuelo"));
+
+const numero_de_vuelo = parseInt(imput);
 
 let piloto_encontrado;
 let encontre_piloto = false;
