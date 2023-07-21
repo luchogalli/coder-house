@@ -14,11 +14,34 @@ pilotos.push(new Piloto ("Jorge Macareno", 28, 8000, 50));
 pilotos.push(new Piloto ("Nikola Ksuftky", 20, 5000, 60));
 pilotos.push(new Piloto ("Zotroy Vladimuski", 41, 14400, 70));
 
+/*const imput = prompt("Ingrese el numero de vuelo");
+if (isNaN(imput)===false){
+    alert("Formato no valido");
+    return;
+}
+*/
 const numero_de_vuelo = parseInt(prompt("Ingrese el numero de vuelo"));
 
+let piloto_encontrado;
+let encontre_piloto = false;
+
 for (let index = 0; index < pilotos.length; index++) {
-    const element = array[index];
+    const element = pilotos[index];
     if(element.vuelo === numero_de_vuelo){
+        piloto_encontrado = element;
+        encontre_piloto = true;
         break;
     }
+} 
+
+if(encontre_piloto === true){
+    let texto = "";
+    texto += "Nombre: " + piloto_encontrado.nombre + "\n";
+    texto += "Edad: " + piloto_encontrado.edad + "\n";
+    texto += "Horas de vuelo: " + piloto_encontrado.horas_de_vuelo + "\n";
+    alert(texto);
+}
+
+else{
+    alert("No se encontro piloto");
 }
