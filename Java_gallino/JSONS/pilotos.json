@@ -1,0 +1,74 @@
+{
+    "pilotos": [
+        {
+            "nombre": "Carlos Medina",
+            "edad": 58,
+            "horas_de_vuelo": 12000,
+            "info_vuelo": {
+                "vuelo": 10,
+                "hora_salida": 8,
+                "hora_llegada": 15
+            }
+        },
+        {
+            "nombre": "Marcos Perez",
+            "edad": 38,
+            "horas_de_vuelo": 1800,
+            "info_vuelo": {
+                "vuelo": 20,
+                "hora_salida": 8,
+                "hora_llegada": 16
+            }
+        },
+        {
+            "nombre": "Carlos Menem",
+            "edad": 55,
+            "horas_de_vuelo": 18000,
+            "info_vuelo": {
+                "vuelo": 30,
+                "hora_salida": 8,
+                "hora_llegada": 18
+            }
+        },
+        {
+            "nombre": "Diego Gutierrez",
+            "edad": 46,
+            "horas_de_vuelo": 10500,
+            "info_vuelo": {
+                "vuelo": 40,
+                "hora_salida": 10,
+                "hora_llegada": 12
+            }
+        },
+        {
+            "nombre": "Jorge Macareno",
+            "edad": 28,
+            "horas_de_vuelo": 8000,
+            "info_vuelo": {
+                "vuelo": 50,
+                "hora_salida": 14,
+                "hora_llegada": 15
+            }
+        },
+        {
+            "nombre": "Nikola Ksuftky",
+            "edad": 20,
+            "horas_de_vuelo": 5000,
+            "info_vuelo": {
+                "vuelo": 60,
+                "hora_salida": 2,
+                "hora_llegada": 15
+            }
+        },
+        {
+            "nombre": "Zotroy Vladimuski",
+            "edad": 41,
+            "horas_de_vuelo": 14400,
+            "info_vuelo": {
+                "vuelo": 70,
+                "hora_salida": 8,
+                "hora_llegada": 15
+            }
+        }
+    ]
+}

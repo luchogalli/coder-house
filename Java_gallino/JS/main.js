@@ -20,49 +20,54 @@ class Piloto {
 
     TextoInfoDePiloto() {
         let texto = "";
-        texto += "Nombre: " + this.nombre + "\n";
-        texto += "Edad: " + this.edad + "\n";
-        texto += "Horas de vuelo: " + this.horas_de_vuelo + "\n";
-        texto += "Duracion de vuelo: " + this.info_vuelo.TiempoDeVuelo() + "\n";
+        const terminacion_de_linea = "\n";
+        texto += "Nombre: " + this.nombre + terminacion_de_linea;
+        texto += "Edad: " + this.edad + terminacion_de_linea;
+        texto += "Horas de vuelo: " + this.horas_de_vuelo + terminacion_de_linea;
+        texto += "Duracion de vuelo: " + this.info_vuelo.TiempoDeVuelo() + terminacion_de_linea;
         return texto;
     }
 }
 
-var pilotos = new Array();
-pilotos.push(new Piloto("Carlos Medina", 58, 12000, new InfoVuelo(10, 8, 15)));
-pilotos.push(new Piloto("Marcos Perez", 38, 1800, new InfoVuelo(20, 8, 16)));
-pilotos.push(new Piloto("Carlos Menem", 55, 18000, new InfoVuelo(30, 8, 18)));
-pilotos.push(new Piloto("Diego Gutierrez", 46, 10500, new InfoVuelo(40, 10, 12)));
-pilotos.push(new Piloto("Jorge Macareno", 28, 8000, new InfoVuelo(50, 14, 15)));
-pilotos.push(new Piloto("Nikola Ksuftky", 20, 5000, new InfoVuelo(60, 2, 15)));
-pilotos.push(new Piloto("Zotroy Vladimuski", 41, 14400, new InfoVuelo(70, 8, 15)));
-
-let imput = prompt("Ingrese el numero de vuelo");
-
-if (isNaN(imput) === true) {
-    alert("Formato no valido");
-    imput = -1;
-}
-
-const numero_de_vuelo = parseInt(imput);
-
-let piloto_encontrado;
-let encontre_piloto = false;
-
-for (let index = 0; index < pilotos.length; index++) {
-    const element = pilotos[index];
-    if (element.info_vuelo.vuelo === numero_de_vuelo) {
-        piloto_encontrado = element;
-        encontre_piloto = true;
-        break;
+async function ImportarPilotos(){
+    const json = await fetch("./JSONS/pilotos.json");
+    if (!json.ok) {
+        console.error("Error");
+        return null;
     }
+    
+    const data = await json.json();
+
+    const pilotos = new Array();
+    for (let index = 0; index < data.pilotos.length; index++) {
+        const element = data.pilotos[index];
+        const infoVuelo = new InfoVuelo(element.info_vuelo.vuelo, element.info_vuelo.hora_salida, element.info_vuelo.hora_llegada);
+        pilotos.push(new Piloto(element.nombre, element.edad, element.horas_de_vuelo, infoVuelo));
+    }
+
+    return pilotos;
 }
 
-if (encontre_piloto === true) {
-    let texto = "";
-    texto += piloto_encontrado.TextoInfoDePiloto();
-    alert(texto);
-}
-else {
-    alert("No se encontro piloto");
+async function Core(){
+    const pilotos = await ImportarPilotos();
+    
+    let input = prompt("Ingrese el numero de vuelo");
+    
+    if (isNaN(input) === true) {
+        alert("Formato no valido");
+        input = -1;
+    }
+    
+    const numero_de_vuelo = parseInt(input);
+    const piloto_encontrado = pilotos.find(item => item.info_vuelo.vuelo === numero_de_vuelo);
+    let encontre_piloto = piloto_encontrado != null;
+    
+    if (encontre_piloto === true) {
+        let texto = "";
+        texto += piloto_encontrado.TextoInfoDePiloto();
+        alert(texto);
+    }
+    else {
+        alert("No se encontro piloto");
+    }
 }
