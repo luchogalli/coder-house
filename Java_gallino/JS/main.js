@@ -49,25 +49,61 @@ async function ImportarPilotos(){
 }
 
 async function Core(){
+    const iniciar_sesion = "iniciar_sesion";
+    const ya_estuvo = localStorage.getItem(iniciar_sesion);
+    
+    if (ya_estuvo) {
+        alert("Bienvenido otra vez!");
+    }
+    localStorage.setItem(iniciar_sesion, true);
+    
     const pilotos = await ImportarPilotos();
     
     let input = prompt("Ingrese el numero de vuelo");
     
-    if (isNaN(input) === true) {
-        alert("Formato no valido");
-        input = -1;
+    const piloto_anterior = "piloto_anterior";
+    const piloto_anterior_vuelo = localStorage.getItem(piloto_anterior);
+
+    while (isNaN(input)) {
+        alert("Valor invalido, vuelva a ingresar");
+        input = prompt("Ingrese el numero de vuelo");
     }
     
+    let continuar = false;
+    if (input === piloto_anterior_vuelo) {
+        continuar = confirm("Este es el mismo piloto que buscaste la anterior vez, desear continuar?");
+    }
+    
+    if(continuar === false) {
+        while (input === piloto_anterior_vuelo) {
+            input = prompt("Ingrese el numero de vuelo");
+        }
+    }
+    localStorage.setItem(piloto_anterior, input);
+
     const numero_de_vuelo = parseInt(input);
-    const piloto_encontrado = pilotos.find(item => item.info_vuelo.vuelo === numero_de_vuelo);
-    let encontre_piloto = piloto_encontrado != null;
+    const piloto_encontrado = pilotos.find(piloto => piloto.info_vuelo.vuelo === numero_de_vuelo);
+    const encontre_piloto = piloto_encontrado != null;
     
     if (encontre_piloto === true) {
-        let texto = "";
-        texto += piloto_encontrado.TextoInfoDePiloto();
+        const texto = piloto_encontrado.TextoInfoDePiloto();
         alert(texto);
     }
     else {
         alert("No se encontro piloto");
     }
 }
+
+const botones = document.getElementsByClassName("boton");
+console.log(botones);
+for (let index = 0; index < botones.length; index++) {
+    console.log(index);
+    console.log(botones[index]);
+    const boton = botones[index];
+    boton.addEventListener("click", () => {
+        localStorage.clear();
+    });
+}
+
+Core();
+
