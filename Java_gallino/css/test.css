@@ -1,3 +1,11 @@
-.boton { 
+#boton-cache { 
+    background-color: red;
+}
+
+#boton-piloto { 
+    background-color: red;
+}
+
+#input-piloto { 
     background-color: red;
 }

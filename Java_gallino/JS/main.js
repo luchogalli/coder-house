@@ -48,40 +48,39 @@ async function ImportarPilotos(){
     return pilotos;
 }
 
-async function Core(){
+function Saludar(){
     const iniciar_sesion = "iniciar_sesion";
     const ya_estuvo = localStorage.getItem(iniciar_sesion);
     
     if (ya_estuvo) {
         alert("Bienvenido otra vez!");
     }
-    localStorage.setItem(iniciar_sesion, true);
-    
-    const pilotos = await ImportarPilotos();
-    
-    let input = prompt("Ingrese el numero de vuelo");
+    else{
+        localStorage.setItem(iniciar_sesion, true);
+    }
+}
+
+function BuscarPiloto(numero){
+    if (isNaN(numero)) {
+        alert("Valor invalido, vuelva a ingresar");
+        return;
+    }
     
     const piloto_anterior = "piloto_anterior";
     const piloto_anterior_vuelo = localStorage.getItem(piloto_anterior);
 
-    while (isNaN(input)) {
-        alert("Valor invalido, vuelva a ingresar");
-        input = prompt("Ingrese el numero de vuelo");
-    }
-    
-    let continuar = false;
-    if (input === piloto_anterior_vuelo) {
+    let continuar = true;
+    if (numero === piloto_anterior_vuelo) {
         continuar = confirm("Este es el mismo piloto que buscaste la anterior vez, desear continuar?");
     }
     
-    if(continuar === false) {
-        while (input === piloto_anterior_vuelo) {
-            input = prompt("Ingrese el numero de vuelo");
-        }
+    if (continuar === false) {
+        return;
     }
-    localStorage.setItem(piloto_anterior, input);
 
-    const numero_de_vuelo = parseInt(input);
+    localStorage.setItem(piloto_anterior, numero);
+
+    const numero_de_vuelo = parseInt(numero);
     const piloto_encontrado = pilotos.find(piloto => piloto.info_vuelo.vuelo === numero_de_vuelo);
     const encontre_piloto = piloto_encontrado != null;
     
@@ -94,16 +93,22 @@ async function Core(){
     }
 }
 
-const botones = document.getElementsByClassName("boton");
-console.log(botones);
-for (let index = 0; index < botones.length; index++) {
-    console.log(index);
-    console.log(botones[index]);
-    const boton = botones[index];
-    boton.addEventListener("click", () => {
-        localStorage.clear();
-    });
+async function Core(){
+    pilotos = await ImportarPilotos();
 }
 
-Core();
+const botonCache = document.getElementById("boton-cache");
+botonCache.addEventListener("click", () => {
+    localStorage.clear();
+});
 
+const botonInput = document.getElementById("boton-piloto");
+botonInput.addEventListener("click", () => {
+    const inputPiloto = document.getElementById("input-piloto");
+    BuscarPiloto(inputPiloto.value);
+});
+
+let pilotos;
+
+Saludar();
+Core();
