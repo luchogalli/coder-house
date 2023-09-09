@@ -29,6 +29,13 @@ class Piloto {
     }
 }
 
+function DisplayPilotoInfo(info) {
+    const infoLabel = document.getElementById("info-label");
+    if (infoLabel) {
+        infoLabel.textContent = info;
+    }
+}
+
 async function ImportarPilotos() {
     try {
         const json = await fetch("./JSONS/pilotos.json");
@@ -64,7 +71,7 @@ function Saludar() {
     }
 }
 
-function BuscarPiloto(numero) {
+async function BuscarPiloto(numero) {
     if (isNaN(numero)) {
         alert("Valor inválido, vuelva a ingresar");
         return;
@@ -90,9 +97,9 @@ function BuscarPiloto(numero) {
 
     if (encontre_piloto) {
         const texto = piloto_encontrado.TextoInfoDePiloto();
-        alert(texto);
+        DisplayPilotoInfo(texto); // Display the info in the label
     } else {
-        alert("No se encontró piloto");
+        DisplayPilotoInfo("No se encontró piloto");
     }
 }
 
