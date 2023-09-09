@@ -8,4 +8,10 @@
 
 #input-piloto { 
     background-color: white;
+    padding-top: 20px;
+}
+body {
+    background-color: aqua;
+    justify-content: center;
+    padding-left: 2%;
 }
