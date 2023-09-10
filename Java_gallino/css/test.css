@@ -1,8 +1,11 @@
 #boton-cache { 
-    background-color: red;
+    background-color: lightblue;
 }
 
 #boton-piloto { 
+    background-color: green;
+}
+#clear-button{
     background-color: red;
 }
 

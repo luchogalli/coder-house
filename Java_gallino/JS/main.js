@@ -97,10 +97,24 @@ async function BuscarPiloto(numero) {
 
     if (encontre_piloto) {
         const texto = piloto_encontrado.TextoInfoDePiloto();
-        DisplayPilotoInfo(texto); // Display the info in the label
+        DisplayPilotoInfo(texto); 
     } else {
         DisplayPilotoInfo("No se encontró piloto");
     }
+}
+
+
+const clearButton = document.getElementById("clear-button");
+if (clearButton) {
+    clearButton.addEventListener("click", () => {
+
+        DisplayPilotoInfo("");
+
+        const inputPiloto = document.getElementById("input-piloto");
+        if (inputPiloto) {
+            inputPiloto.value = "";
+        }
+    });
 }
 
 async function Core() {
