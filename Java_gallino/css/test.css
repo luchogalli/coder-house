@@ -13,6 +13,10 @@
     background-color: white;
     padding-top: 20px;
 }
+.piloto-display{
+    display: flex;
+    flex-direction: column;
+}
 body {
     background-color: aqua;
     justify-content: center;
